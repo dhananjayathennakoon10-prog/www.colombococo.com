@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colombo Coco 🥥 - Cart</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #fefcea, #f1da36);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    header img { width: 50px; }
+    header h1 { font-size: 28px; color: #0a7c3e; margin: 0; }
+    .cart {
+      width: 100%;
+      max-width: 700px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 25px;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .item:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
+    .qty input {
+      width: 50px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .total {
+      text-align: right;
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 20px;
+      color: #0a7c3e;
+    }
+    button {
+      width: 100%;
+      padding: 15px;
+      background: #0a7c3e;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    button:hover { background: #095c2c; }
+  </style>
+</head>
+<body>
+<header>
+  <img src="https://img.icons8.com/ios-filled/50/000000/shopping-cart.png" alt="Cart Icon">
+  <h1>ඔබගේ Cart එක</h1>
+</header>
+
+<div class="cart">
+  <div class="item">
+    <span>🥥 Coconut Oil 1L</span>
+    <div class="qty">
+      <input type="number" value="1" min="0" data-price="830" onchange="updateTotal()">
+    </div>
+    <span>Rs.<span class="item-total">830</span></span>
+  </div>
+
+  <div class="item">
+    <span>🥥 Coconut Oil 500ml</span>
+    <div class="qty">
+      <input type="number" value="0" min="0" data-price="470" onchange="updateTotal()">
+    </div>
+    <span>Rs.<span class="item-total">0</span></span>
+  </div>
+
+  <div class="total">Total: Rs.<span id="total">830</span></div>
+  <button>Order via WhatsApp</button>
+</div>
+
+<script>
+function updateTotal() {
+  let total = 0;
+  document.querySelectorAll('.item').forEach(item => {
+    let qtyInput = item.querySelector('input');
+    let price = parseInt(qtyInput.dataset.price);
+    let qty = parseInt(qtyInput.value);
+    let itemTotal = qty * price;
+    item.querySelector('.item-total').innerText = itemTotal;
+    total += itemTotal;
+  });
+  document.getElementById('total').innerText = total;
+}
+</script>
+</body>
+</html>
