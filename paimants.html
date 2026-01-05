@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+<meta charset="UTF-8">
+<title>Colombo Coco | Order</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+:root{
+  --green:#2ecc71;
+  --dark:#1e1e1e;
+}
+body{
+  margin:0;
+  font-family:'Segoe UI',Arial;
+  background:linear-gradient(135deg,#e8f5e9,#ffffff);
+}
+.container{
+  max-width:480px;
+  margin:30px auto;
+  background:#fff;
+  border-radius:18px;
+  box-shadow:0 15px 40px rgba(0,0,0,.15);
+  overflow:hidden;
+}
+.header{
+  background:var(--green);
+  color:#fff;
+  padding:25px;
+  text-align:center;
+}
+.header h1{margin:0;font-size:24px;}
+.header p{margin:5px 0 0;font-size:14px;}
+
+.content{
+  padding:25px;
+}
+label{
+  font-weight:600;
+  margin-top:15px;
+  display:block;
+}
+input,select{
+  width:100%;
+  padding:12px;
+  margin-top:6px;
+  border-radius:10px;
+  border:1px solid #ccc;
+  font-size:15px;
+}
+.total{
+  margin-top:20px;
+  padding:15px;
+  background:#f1f8f4;
+  border-radius:10px;
+  font-size:18px;
+  text-align:center;
+  font-weight:bold;
+}
+button{
+  width:100%;
+  margin-top:20px;
+  padding:14px;
+  font-size:17px;
+  border:none;
+  border-radius:12px;
+  background:#25D366;
+  color:#fff;
+  cursor:pointer;
+}
+button:hover{opacity:.9;}
+.footer{
+  text-align:center;
+  font-size:12px;
+  color:#666;
+  padding:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="header">
+    <h1>Colombo Coco 🥥</h1>
+    <p>පිරිසිදු ශ්‍රී ලංකා කොකනට් තෙල්</p>
+  </div>
+
+  <div class="content">
+    <label>ඔබගේ නම</label>
+    <input id="name" placeholder="නම ඇතුළත් කරන්න" required>
+
+    <label>දුරකථන අංකය</label>
+    <input id="phone" placeholder="07XXXXXXXX" required>
+
+    <label>නිෂ්පාදනය තෝරන්න</label>
+    <select id="product" onchange="updatePrice()">
+      <option value="2500">Pure Coconut Oil 1L – LKR 2500</option>
+      <option value="1400">Pure Coconut Oil 500ml – LKR 1400</option>
+      <option value="800">Virgin Coconut Oil 250ml – LKR 800</option>
+    </select>
+
+    <label>ප්‍රමාණය (Quantity)</label>
+    <input type="number" id="qty" value="1" min="1" onchange="updatePrice()">
+
+    <label>ලැබිය යුතු ලිපිනය</label>
+    <input id="address" placeholder="Delivery Address" required>
+
+    <div class="total">
+      මුළු මුදල: LKR <span id="total">2500</span>
+    </div>
+
+    <button onclick="sendOrder()">Order via WhatsApp</button>
+  </div>
+
+  <div class="footer">
+    Secure Order • Colombo Coco 🥥
+  </div>
+</div>
+
+<script>
+const whatsappNumber = "94704845611"; // YOUR NUMBER
+
+function updatePrice(){
+  let price = document.getElementById("product").value;
+  let qty = document.getElementById("qty").value;
+  document.getElementById("total").innerText = price * qty;
+}
+
+function sendOrder(){
+  let name = document.getElementById("name").value;
+  let phone = document.getElementById("phone").value;
+  let address = document.getElementById("address").value;
+  let productText = document.getElementById("product").selectedOptions[0].text;
+  let qty = document.getElementById("qty").value;
+  let total = document.getElementById("total").innerText;
+
+  if(!name || !phone || !address){
+    alert("කරුණාකර සියලු විස්තර පුරවන්න");
+    return;
+  }
+
+  let msg =
+    "🥥 *Colombo Coco - New Order*%0A%0A" +
+    "👤 නම: " + name + "%0A" +
+    "📞 දුරකථන: " + phone + "%0A%0A" +
+    "🛒 නිෂ්පාදනය: " + productText + "%0A" +
+    "📦 ප්‍රමාණය: " + qty + "%0A" +
+    "💰 මුළු මුදල: LKR " + total + "%0A%0A" +
+    "🏠 ලිපිනය: " + address;
+
+  window.open("https://wa.me/" + whatsappNumber + "?text=" + msg, "_blank");
+}
+</script>
+
+</body>
+</html>
