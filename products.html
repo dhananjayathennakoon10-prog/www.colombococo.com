@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Colombo Coco - Products</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #0a0f0f, #1e1e1e);
+            color: #fff;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #00e0a8;
+        }
+
+        nav a {
+            margin-left: 25px;
+            text-decoration: none;
+            color: #fff;
+            opacity: 0.8;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 1;
+            color: #00e0a8;
+        }
+
+        .page-title {
+            margin-top: 120px;
+            text-align: center;
+        }
+
+        .page-title h2 {
+            font-size: 42px;
+            margin-bottom: 10px;
+        }
+
+        .product-grid {
+            margin: 60px auto;
+            width: 90%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            transition: 0.3s;
+            text-align: center;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+        }
+
+        .product img {
+            width: 100%;
+            border-radius: 15px;
+        }
+
+        .product h3 {
+            margin: 15px 0 10px;
+        }
+
+        .product p {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #00e0a8;
+        }
+
+        .btn {
+            background: #00e0a8;
+            padding: 12px 25px;
+            color: #000;
+            font-weight: 600;
+            border-radius: 30px;
+            display: inline-block;
+            transition: 0.3s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: #00b384;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            margin-top: 50px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(6px);
+        }
+
+        /* Tablet */
+        @media (max-width: 1024px) {
+            header { padding: 15px 30px; }
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            header { flex-direction: column; padding: 10px; text-align: center; }
+            nav a { margin: 10px; display: inline-block; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Colombo Coco</h1>
+        <nav>
+            <a href="file:///C:/Users/Dell/Documents/colombo%20coco/main%20page.html#home">Home</a>
+            <a href="products.html">Products</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <div class="page-title">
+        <h2>Our Products</h2>
+        <p>Premium Coconut Oil Products for Sri Lanka & Worldwide</p>
+    </div>
+
+    <div class="product-grid">
+        <div class="product">
+            <img src="https://www.bing.com/th/id/OIP.VBQf-FVzoON-hZxhDJlGpwHaES?w=290&h=211&c=8&rs=1&qlt=90&o=6&pid=3.1&rm=2" />
+            <h3>500ml Coconut Oil</h3>
+            <p>Pure cold-pressed coconut oil made from fresh coconuts.</p>
+            <div class="price">Rs.430</div>
+            <a class="btn">Buy Now</a>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1615485925600-e146f0d7d76f" />
+            <h3>1L Coconut Oil</h3>
+            <p>Premium export-quality coconut oil for daily use.</p>
+            <div class="price">Rs.1400</div>
+            <a class="btn">Buy Now</a>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1556228578-877c94ce3d4f" />
+            <h3>Cooking Grade Oil</h3>
+            <p>Perfect for cooking, frying, and baking.</p>
+            <div class="price">Rs. 1500</div>
+            <a class="btn">Buy Now</a>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1505575967455-40e256f73376" />
+            <h3>Organic Virgin Oil</h3>
+            <p>Ideal for hair, skin, and beauty treatments.</p>
+            <div class="price">Rs. 2300</div>
+            <a class="btn">Buy Now</a>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b" />
+            <h3>5L Family Pack</h3>
+            <p>Bulk pack specially made for families.</p>
+            <div class="price">Rs. 7000</div>
+            <a class="btn">Buy Now</a>
+        </div>
+
+        <div class="product">
+            <img src="https://images.unsplash.com/photo-1604147706283-d71191f7d6d1" />
+            <h3>Export Quality Oil</h3>
+            <p>Premium grade oil for international markets.</p>
+            <div class="price">$25</div>
+            <a class="btn">Buy Now</a>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 Colombo Coco | All Rights Reserved
+    </footer>
+
+</body>
+</html>
