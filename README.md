@@ -162,14 +162,14 @@ footer{
             <div class="card">
                 <img src="https://tse2.mm.bing.net/th/id/OIP.6X69S8fpzXms4xwV6r5cAwAAAA?pid=ImgDet&w=190&h=285&c=7&o=7&rm=3">
                 <h3>500ml Coconut Oil</h3>
-                <p class="price">Rs. 999</p>
+                <p class="price">Rs. 470</p>
                 <a class="btn" href="https://wa.me/94704845611">Buy Now</a>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1615485925600-e146f0d7d76f">
+                <img src="https://raw.githubusercontent.com/dhananjayathennakoon10-prog/colombococo/fa8b8147f58367f1d82c2c75918773a89d0bdceb/ChatGPT%20Image%20Dec%2016%2C%202025%2C%2011_26_12%20PM.png">
                 <h3>1L Coconut Oil</h3>
-                <p class="price">Rs. 1800</p>
+                <p class="price">Rs. 830</p>
                 <a class="btn" href="https://wa.me/94704845611">Buy Now</a>
             </div>
 
