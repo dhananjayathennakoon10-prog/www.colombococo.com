@@ -150,7 +150,7 @@ footer{
         <h2>Pure Organic Coconut Oil</h2>
         <p>Cold-Pressed | 100% Natural | Sri Lankan Premium Quality</p>
         <a href="#products" class="btn">Shop Now</a>
-        <a href="#cart.html" class="btn"> Cart 🛒</a>
+        <a href="cart.html" class="btn"> Cart 🛒</a>
     </div>
 </section>
 
