@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="si">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Colombo Coco 🥥 - Cart</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #fefcea, #f1da36);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 30px;
+      animation: fadeInDown 1s ease;
+    }
+    header img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+    h1 {
+      font-size: 28px;
+      color: #0a7c3e;
+      animation: fadeInUp 1s ease;
+    }
+    .cart {
+      width: 100%;
+      max-width: 700px;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      padding: 25px;
+      animation: fadeIn 1s ease;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+    .item span { font-weight: 600; }
+    .qty-controls {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .qty-controls button {
+      background: #0a7c3e;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+    .qty-controls input {
+      width: 50px;
+      text-align: center;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+    .total {
+      text-align: right;
+      font-size: 22px;
+      font-weight: 700;
+      margin-top: 20px;
+      color: #0a7c3e;
+    }
+    .order-btn {
+      width: 100%;
+      padding: 15px;
+      background: #0a7c3e;
+      color: white;
+      border: none;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background 0.3s, transform 0.3s;
+    }
+    .order-btn:hover {
+      background: #095c2c;
+      transform: translateY(-3px);
+    }
+
+    @keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+    @keyframes fadeInUp { from {opacity:0; transform: translateY(20px);} to {opacity:1; transform: translateY(0);} }
+    @keyframes fadeInDown { from {opacity:0; transform: translateY(-20px);} to {opacity:1; transform: translateY(0);} }
+  </style>
+</head>
+<body>
+<header>
+  <img src="https://via.placeholder.com/120x120.png?text=🥥" alt="Colombo Coco Logo">
+  <h1>ඔබගේ Cart එක</h1>
+</header>
+<div class="cart" id="cart"></div>
+<button class="order-btn" onclick="sendOrder()">Order via WhatsApp</button>
+
+<script>
+function loadCart() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cartDiv = document.getElementById('cart');
+  cartDiv.innerHTML = '';
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += item.price * item.qty;
+    let itemDiv = document.createElement('div');
+    itemDiv.className = 'item';
+    itemDiv.innerHTML = `
+      <span>${item.name}</span>
+      <div class='qty-controls'>
+        <button onclick='changeQty(${index}, -1)'>-</button>
+        <input type='number' min='0' value='${item.qty}' onchange='updateQty(${index}, this.value)'>
+        <button onclick='changeQty(${index}, 1)'>+</button>
+      </div>
+      <span>Rs.${item.price * item.qty}</span>
+    `;
+    cartDiv.appendChild(itemDiv);
+  });
+  let totalDiv = document.createElement('div');
+  totalDiv.className = 'total';
+  totalDiv.innerHTML = `Total: Rs.<span id='totalPrice'>${total}</span>`;
+  cartDiv.appendChild(totalDiv);
+}
+
+function updateQty(index, qty) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart[index].qty = parseInt(qty);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  loadCart();
+}
+
+function changeQty(index, delta) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart[index].qty = Math.max(0, cart[index].qty + delta);
+  localStorage.setItem('cart', JSON.stringify(cart));
+  loadCart();
+}
+
+function sendOrder() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  if(cart.length === 0) { alert('ඔබගේ cart හි කිසිම නිෂ්පාදනයක් නැත!'); return; }
+  let message = 'Colombo Coco Order%0A';
+  cart.forEach(item => { if(item.qty > 0) message += `${item.name} x ${item.qty}%0A`; });
+  let total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  message += `Total: Rs.${total}`;
+  window.open('https://wa.me/94704845611?text=' + message, '_blank');
+}
+
+window.onload = loadCart;
+</script>
+</body>
+</html>
