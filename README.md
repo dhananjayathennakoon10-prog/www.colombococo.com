@@ -162,7 +162,7 @@ footer{
             <div class="card">
                 <img src="https://images.unsplash.com/photo-1582650773569-29a7d64a21b1">
                 <h3>500ml Coconut Oil</h3>
-                <p class="price">Rs. 1000</p>
+                <p class="price">Rs. 999</p>
                 <a class="btn" href="https://wa.me/94704845611">Buy Now</a>
             </div>
 
