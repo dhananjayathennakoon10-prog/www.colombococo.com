@@ -163,21 +163,21 @@ footer{
                 <img src="https://github.com/dhananjayathennakoon10-prog/colombococo/blob/main/Gemini_Generated_Image_m9kf93m9kf93m9kf.png?raw=true">
                 <h3>500ml Coconut Oil</h3>
                 <p class="price">Rs. 470</p>
-                <a class="btn" href="https://wa.me/94704845611">Buy Now</a>
+                <a class="btn" href="paimants.html">Buy Now</a>
             </div>
 
             <div class="card">
                 <img src="https://raw.githubusercontent.com/dhananjayathennakoon10-prog/colombococo/fa8b8147f58367f1d82c2c75918773a89d0bdceb/ChatGPT%20Image%20Dec%2016%2C%202025%2C%2011_26_12%20PM.png">
                 <h3>1L Coconut Oil</h3>
                 <p class="price">Rs. 830</p>
-                <a class="btn" href="https://wa.me/94704845611">Buy Now</a>
+                <a class="btn" href="paimants.html">Buy Now</a>
             </div>
 
             <div class="card">
                 <img src="https://github.com/dhananjayathennakoon10-prog/colombococo/blob/main/Gemini_Generated_Image_hk3jbnhk3jbnhk3j.png?raw=true">
                 <h3>Cooking Grade Oil</h3>
                 <p class="price">Rs.1200</p>
-                <a class="btn" href="https://wa.me/94704845611">Buy Now</a>
+                <a class="btn" href="paimants.html">Buy Now</a>
             </div>
         </div>
     </div>
